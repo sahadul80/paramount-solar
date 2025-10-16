@@ -1,7 +1,7 @@
 // components/Sections/ProjectSchedule.tsx
 "use client"
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiCalendar, FiCheckCircle, FiClock, FiAlertTriangle, FiTrendingUp, FiFlag, FiMap, FiBarChart2, FiChevronDown, FiChevronRight, FiPlay, FiPause, FiSquare } from 'react-icons/fi';
+import { FiCalendar, FiCheckCircle, FiClock, FiAlertTriangle, FiTrendingUp, FiFlag, FiMap, FiBarChart2, FiChevronDown, FiChevronRight } from 'react-icons/fi';
 import { useState } from 'react';
 
 interface Milestone {
@@ -66,15 +66,6 @@ export const ProjectSchedule: React.FC<ProjectScheduleProps> = ({
     }
   };
 
-  const getStatusColor = (status: Milestone['status']) => {
-    switch (status) {
-      case 'completed': return 'bg-green-500';
-      case 'in-progress': return 'bg-blue-500';
-      case 'delayed': return 'bg-red-500';
-      case 'upcoming': return 'bg-gray-400';
-      default: return 'bg-gray-400';
-    }
-  };
 
   const getStatusBgColor = (status: Milestone['status']) => {
     switch (status) {
@@ -146,7 +137,7 @@ export const ProjectSchedule: React.FC<ProjectScheduleProps> = ({
     level: number;
     index: number;
     isLast: boolean;
-  }> = ({ milestone, level, index, isLast }) => {
+  }> = ({ milestone, level, index }) => {
     const isExpanded = expandedItems.has(milestone.id);
     const hasChildren = milestone.subTasks && milestone.subTasks.length > 0;
     const paddingLeft = level * 24;
@@ -340,7 +331,7 @@ export const ProjectSchedule: React.FC<ProjectScheduleProps> = ({
           
           {/* Milestone bars */}
           <div className="space-y-3">
-            {data.milestones.slice(0, 6).map((milestone, index) => (
+            {data.milestones.slice(0, 6).map((milestone) => (
               <div key={milestone.id} className="flex items-center space-x-4">
                 <div className="w-32 text-sm font-medium text-gray-700 dark:text-gray-200 truncate">
                   {milestone.name}

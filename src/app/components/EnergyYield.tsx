@@ -2,7 +2,7 @@
 "use client"
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { FiTrendingUp, FiBarChart2, FiActivity, FiInfo, FiZap, FiBattery, FiSun, FiCalendar } from 'react-icons/fi';
+import { FiTrendingUp, FiBarChart2, FiInfo, FiZap, FiSun, FiCalendar } from 'react-icons/fi';
 
 interface EnergyYieldData {
   firstYear: {

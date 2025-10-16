@@ -100,7 +100,6 @@ export default function Gallery() {
     restartTimeoutRef.current = setTimeout(() => {
       const container = scrollContainerRef.current;
       if (!container) return;
-      const cardWidth = container.querySelector<HTMLElement>(".gallery-card")?.offsetWidth || 0;
 
       autoScrollRef.current = setInterval(() => {
         setActiveIndex((prev) => {

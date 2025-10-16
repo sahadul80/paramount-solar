@@ -31,6 +31,21 @@ interface FinancialAnalysisProps {
   variant?: 'default' | 'compact' | 'detailed';
 }
 
+// Move this function outside the component to avoid dependency issues
+function getAssumptionDescription(key: string): string {
+  const descriptions: Record<string, string> = {
+    'operationYears': 'Project operational lifetime',
+    'degradationRate': 'Annual panel efficiency degradation',
+    'inflationRate': 'Annual inflation assumption',
+    'discountRate': 'Discount rate for NPV calculation',
+    'debtInterest': 'Average interest rate on debt',
+    'taxRate': 'Corporate tax rate applied',
+    'insuranceCost': 'Annual insurance as % of CAPEX',
+    'omCost': 'Annual operation and maintenance cost'
+  };
+  return descriptions[key] || 'Financial assumption';
+}
+
 export const FinancialAnalysis: React.FC<FinancialAnalysisProps> = ({ 
   data, 
   className = "",
@@ -38,7 +53,7 @@ export const FinancialAnalysis: React.FC<FinancialAnalysisProps> = ({
 }) => {
   const [selectedView, setSelectedView] = useState<'overview' | 'metrics' | 'assumptions'>('overview');
 
-  // Calculate additional financial metrics - move useMemo to top level
+  // Calculate additional financial metrics - move all useMemo hooks to top level
   const financialMetrics = useMemo(() => {
     if (!data) return null;
     
@@ -65,6 +80,17 @@ export const FinancialAnalysis: React.FC<FinancialAnalysisProps> = ({
     };
   }, [data]);
 
+  // Format assumptions for display - moved to top level
+  const formattedAssumptions = useMemo(() => {
+    if (!data?.assumptions) return [];
+    return Object.entries(data.assumptions).map(([key, value]) => ({
+      key: key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()),
+      value: value?.toString() || '',
+      description: getAssumptionDescription(key)
+    }));
+  }, [data?.assumptions]);
+
+  // Early return after all hooks
   if (!data || !financialMetrics) {
     return (
       <section id="financials" className={`w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 ${className}`}>
@@ -177,30 +203,6 @@ export const FinancialAnalysis: React.FC<FinancialAnalysisProps> = ({
       color: 'from-teal-500 to-green-500'
     }
   ];
-
-  // Format assumptions for display
-  const formattedAssumptions = useMemo(() => {
-    if (!data.assumptions) return [];
-    return Object.entries(data.assumptions).map(([key, value]) => ({
-      key: key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()),
-      value: value?.toString() || '',
-      description: getAssumptionDescription(key)
-    }));
-  }, [data.assumptions]);
-
-  function getAssumptionDescription(key: string): string {
-    const descriptions: Record<string, string> = {
-      'operationYears': 'Project operational lifetime',
-      'degradationRate': 'Annual panel efficiency degradation',
-      'inflationRate': 'Annual inflation assumption',
-      'discountRate': 'Discount rate for NPV calculation',
-      'debtInterest': 'Average interest rate on debt',
-      'taxRate': 'Corporate tax rate applied',
-      'insuranceCost': 'Annual insurance as % of CAPEX',
-      'omCost': 'Annual operation and maintenance cost'
-    };
-    return descriptions[key] || 'Financial assumption';
-  }
 
   return (
     <section id="financials" className={`w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 ${className}`}>
