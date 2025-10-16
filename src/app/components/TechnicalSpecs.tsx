@@ -161,7 +161,7 @@ export const TechnicalSpecs: React.FC<TechnicalSpecsProps> = ({
   };
 
   return (
-    <section id="technical" className={`w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 ${className}`}>
+    <section id="technical" className={`w-full max-w-[100vw] p-4 ${className}`}>
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -171,9 +171,9 @@ export const TechnicalSpecs: React.FC<TechnicalSpecsProps> = ({
         {/* Section Header */}
         <motion.div 
           variants={itemVariants}
-          className="text-center mb-8 lg:mb-12"
+          className="text-center m-4"
         >
-          <div className="flex items-center justify-center mb-3 lg:mb-4">
+          <div className="flex items-center justify-start">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
               <FiSettings className="w-6 h-6 text-white" />
             </div>
@@ -181,9 +181,6 @@ export const TechnicalSpecs: React.FC<TechnicalSpecsProps> = ({
               Technical Specifications
             </h2>
           </div>
-          <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Detailed technical parameters and performance specifications for all system components
-          </p>
         </motion.div>
 
         {/* Main Content Card */}
@@ -229,7 +226,7 @@ export const TechnicalSpecs: React.FC<TechnicalSpecsProps> = ({
           </div>
 
           {/* Tab Content */}
-          <div className="p-6 lg:p-8">
+          <div className="p-4">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
@@ -237,7 +234,7 @@ export const TechnicalSpecs: React.FC<TechnicalSpecsProps> = ({
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="space-y-6"
+                className="space-y-2"
               >
                 {/* Tab Header */}
                 <div className="flex items-center justify-between">
@@ -245,7 +242,7 @@ export const TechnicalSpecs: React.FC<TechnicalSpecsProps> = ({
                     <h3 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white flex items-center">
                       {tabs.find(tab => tab.id === activeTab)?.label}
                     </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+                    <p className="text-sm text-gray-600 dark:text-gray-300 ">
                       {tabs.find(tab => tab.id === activeTab)?.description}
                     </p>
                   </div>
@@ -265,12 +262,12 @@ export const TechnicalSpecs: React.FC<TechnicalSpecsProps> = ({
                   renderSpecTable(getCurrentSpecs())
                 ) : (
                   <motion.div 
-                    className="text-center py-12"
+                    className="text-center p-4"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                   >
-                    <FiCpu className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                    <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
+                    <FiCpu className="w-12 h-12 text-gray-400" />
+                    <h4 className="text-lg font-medium text-gray-900 dark:text-white">
                       No Data Available
                     </h4>
                     <p className="text-gray-500 dark:text-gray-400">
@@ -282,7 +279,7 @@ export const TechnicalSpecs: React.FC<TechnicalSpecsProps> = ({
                 {/* Performance Metrics for Detailed Variant */}
                 {variant === 'detailed' && activeTab === 'system' && (
                   <motion.div 
-                    className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-gray-200 dark:border-gray-700"
+                    className="grid grid-cols-1 sm:grid-cols-3 border-t border-gray-200 dark:border-gray-700"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}

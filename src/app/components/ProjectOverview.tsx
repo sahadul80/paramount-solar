@@ -95,7 +95,7 @@ export const ProjectOverview: React.FC<ProjectOverviewProps> = ({
       case 'compact':
         return "text-lg lg:text-xl";
       case 'detailed':
-        return "text-xl lg:text-2xl";
+        return "text-xl lg:text-xl";
       default:
         return "text-lg lg:text-xl";
     }
@@ -104,7 +104,7 @@ export const ProjectOverview: React.FC<ProjectOverviewProps> = ({
   return (
     <section 
       id="overview" 
-      className={`w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 ${className}`}
+      className={`w-full max-w-[100vw] m-2 p-2 ${className}`}
     >
       <motion.div
         variants={containerVariants}
@@ -115,20 +115,17 @@ export const ProjectOverview: React.FC<ProjectOverviewProps> = ({
         {/* Section Header */}
         <motion.div 
           variants={itemVariants}
-          className="text-center mb-8 lg:mb-12"
+          className="text-center"
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 lg:mb-4">
+          <h2 className="text-xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white m=4">
             Project Overview
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Comprehensive summary of project specifications, location, and key performance indicators
-          </p>
         </motion.div>
 
         {/* Metrics Grid */}
         <motion.div 
           variants={itemVariants}
-          className={`${getMetricsGridClass()} mb-8 lg:mb-12`}
+          className={`${getMetricsGridClass()} m-4`}
         >
           {metrics.map((metric, index) => (
             <motion.div
@@ -194,7 +191,7 @@ export const ProjectOverview: React.FC<ProjectOverviewProps> = ({
 
         {/* Key Highlights */}
         <motion.div 
-          className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden"
+          className="m-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           whileHover={{ y: -2 }}
@@ -204,8 +201,8 @@ export const ProjectOverview: React.FC<ProjectOverviewProps> = ({
             stiffness: 300 
           }}
         >
-          <div className={`${getCardPadding}`}>
-            <div className="flex items-center mb-4 lg:mb-6">
+          <div className={`${getCardPadding} m-2`}>
+            <div className="flex items-center">
               <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-3">
                 <FiStar className="w-5 h-5 text-white" />
               </div>
@@ -214,11 +211,11 @@ export const ProjectOverview: React.FC<ProjectOverviewProps> = ({
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 m-2">
               {data.keyHighlights.map((highlight, index) => (
                 <motion.div
                   key={index}
-                  className="flex items-start space-x-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+                  className="flex items-start p-2 rounded-lg bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.5 + index * 0.1 }}
@@ -236,13 +233,13 @@ export const ProjectOverview: React.FC<ProjectOverviewProps> = ({
             {/* Additional project info for detailed variant */}
             {variant === 'detailed' && (
               <motion.div 
-                className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 border-t border-gray-100 dark:border-gray-700"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-1 border-t border-gray-100 dark:border-gray-700 flex justify-between max-w-[100vw]"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
               >
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
+                <div className="flex items-center border rounded-lg p-1">
+                  <div className="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center border-r">
                     <FiTarget className="w-5 h-5 text-green-600 dark:text-green-400" />
                   </div>
                   <div>
@@ -251,8 +248,8 @@ export const ProjectOverview: React.FC<ProjectOverviewProps> = ({
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                <div className="flex items-center border rounded-lg p-1">
+                  <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center border-r">
                     <FiClock className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
@@ -261,8 +258,8 @@ export const ProjectOverview: React.FC<ProjectOverviewProps> = ({
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
+                <div className="flex items-center border rounded-lg p-1">
+                  <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center border-r">
                     <FiZap className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                   </div>
                   <div>

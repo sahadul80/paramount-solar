@@ -104,7 +104,7 @@ export const EnergyYield: React.FC<EnergyYieldProps> = ({
   ];
 
   return (
-    <section id="energy" className={`w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 ${className}`}>
+    <section id="energy" className={`w-auto m-4 ${className}`}>
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -114,9 +114,9 @@ export const EnergyYield: React.FC<EnergyYieldProps> = ({
         {/* Section Header */}
         <motion.div 
           variants={itemVariants}
-          className="text-center mb-8 lg:mb-12"
+          className="text-center"
         >
-          <div className="flex items-center justify-center mb-3 lg:mb-4">
+          <div className="flex items-center justify-center p-4">
             <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mr-3">
               <FiTrendingUp className="w-6 h-6 text-white" />
             </div>
@@ -124,9 +124,6 @@ export const EnergyYield: React.FC<EnergyYieldProps> = ({
               Energy Yield Assessment
             </h2>
           </div>
-          <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Comprehensive energy generation projections and performance analysis over project lifetime
-          </p>
         </motion.div>
 
         {/* Main Content Card */}
@@ -136,9 +133,9 @@ export const EnergyYield: React.FC<EnergyYieldProps> = ({
         >
           <div className={getCardPadding()}>
             {/* Controls Header */}
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-6 lg:mb-8 space-y-4 lg:space-y-0">
+            <div className="flex flex-row lg:items-center justify-between m-2 p-2">
               <div className="flex-1">
-                <h3 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white">
                   Projection Analysis
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300">
@@ -146,16 +143,16 @@ export const EnergyYield: React.FC<EnergyYieldProps> = ({
                 </p>
               </div>
               
-              <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+              <div className="flex flex-row justify-between">
                 {/* POE Selector */}
-                <div className="flex-1 sm:flex-none">
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <div className="flex-1 p-2 sm:flex-none">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Probability of Exceedance
                   </label>
                   <select 
                     value={selectedPOE} 
-                    onChange={(e) => setSelectedPOE(e.target.value as any)}
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    onChange={(e: any) => setSelectedPOE(e.target.value)}
+                    className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   >
                     {poeOptions.map(option => (
                       <option key={option.value} value={option.value}>
@@ -167,14 +164,14 @@ export const EnergyYield: React.FC<EnergyYieldProps> = ({
 
                 {/* View Toggle for Detailed Variant */}
                 {variant === 'detailed' && (
-                  <div className="flex-1 sm:flex-none">
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <div className="flex-1 p-2 sm:flex-none">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                       View Mode
                     </label>
-                    <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
+                    <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg">
                       <button
                         onClick={() => setSelectedView('table')}
-                        className={`flex-1 px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                        className={`flex-1 text-sm font-medium rounded-md transition-colors p-1 ${
                           selectedView === 'table'
                             ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm'
                             : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
@@ -184,7 +181,7 @@ export const EnergyYield: React.FC<EnergyYieldProps> = ({
                       </button>
                       <button
                         onClick={() => setSelectedView('chart')}
-                        className={`flex-1 px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                        className={`flex-1 text-sm font-medium rounded-md transition-colors p-1 ${
                           selectedView === 'chart'
                             ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm'
                             : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
@@ -212,7 +209,7 @@ export const EnergyYield: React.FC<EnergyYieldProps> = ({
                     <FiZap className="w-6 h-6 text-white" />
                   </div>
                   <div className="text-right">
-                    <div className="text-xs font-medium text-green-800 dark:text-green-300 bg-green-200 dark:bg-green-800/30 px-2 py-1 rounded-full">
+                    <div className="text-xs font-medium text-green-800 dark:text-green-300 bg-green-200 dark:bg-green-800/30 p-2 rounded-full">
                       {selectedPOE.toUpperCase()}
                     </div>
                   </div>

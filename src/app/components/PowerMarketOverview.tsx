@@ -107,7 +107,7 @@ export const PowerMarketOverview: React.FC<PowerMarketOverviewProps> = ({
   return (
     <section 
       id="market" 
-      className={`w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 ${className}`}
+      className={`w-auto m-4 p-2 ${className}`}
     >
       <motion.div
         variants={containerVariants}
@@ -118,20 +118,17 @@ export const PowerMarketOverview: React.FC<PowerMarketOverviewProps> = ({
         {/* Section Header */}
         <motion.div 
           variants={itemVariants}
-          className="text-center mb-8 lg:mb-12"
+          className="text-center p-2 m-4"
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 lg:mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
             Power Market Overview
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Comprehensive analysis of installed capacity, energy mix, and future projections
-          </p>
         </motion.div>
 
         {/* Key Metrics */}
         <motion.div 
           variants={itemVariants}
-          className={`${getMetricsGridClass()} mb-8 lg:mb-12`}
+          className={`${getMetricsGridClass()} p-2`}
         >
           {/* Total Installed Capacity */}
           <motion.div 
@@ -143,13 +140,13 @@ export const PowerMarketOverview: React.FC<PowerMarketOverviewProps> = ({
               <div className="w-12 h-12 lg:w-14 lg:h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-3 lg:mb-4 group-hover:scale-110 transition-transform duration-300">
                 <FiTrendingUp className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
               </div>
-              <div className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-1 lg:mb-2">
+              <div className="text-xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-1 lg:mb-2">
                 {data.totalInstalledCapacity} GW
               </div>
               <div className="text-xs lg:text-sm text-gray-600 dark:text-gray-300 font-medium">
                 Total Installed Capacity
               </div>
-              <div className="mt-2 text-xs text-green-600 dark:text-green-400 flex items-center">
+              <div className="m-2 text-xs text-green-600 dark:text-green-400 flex items-center">
                 <FiTrendingUp className="w-3 h-3 mr-1" />
                 +12% from last year
               </div>
@@ -229,7 +226,7 @@ export const PowerMarketOverview: React.FC<PowerMarketOverviewProps> = ({
         {/* Data Grid */}
         <motion.div 
           variants={itemVariants}
-          className={`${getDataGridClass()} mb-8 lg:mb-12`}
+          className={`${getDataGridClass()} p-2`}
         >
           {/* Energy Mix */}
           <motion.div 
@@ -237,8 +234,8 @@ export const PowerMarketOverview: React.FC<PowerMarketOverviewProps> = ({
             whileHover={{ y: -2 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className={`${getCardPadding()} h-full`}>
-              <h3 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white mb-4 lg:mb-6 flex items-center">
+            <div className={`${getCardPadding()} p-2 m-4`}>
+              <h3 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white flex items-center p-2">
                 <FiPieChart className="w-5 h-5 lg:w-6 lg:h-6 text-blue-500 mr-2" />
                 Energy Mix
               </h3>
@@ -343,7 +340,7 @@ export const PowerMarketOverview: React.FC<PowerMarketOverviewProps> = ({
               {/* Additional insights for detailed variant */}
               {variant === 'detailed' && (
                 <motion.div 
-                  className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800"
+                  className="m-4 p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
@@ -354,7 +351,7 @@ export const PowerMarketOverview: React.FC<PowerMarketOverviewProps> = ({
                       <p className="text-sm font-medium text-blue-800 dark:text-blue-300">
                         Growth Insight
                       </p>
-                      <p className="text-xs text-blue-600 dark:text-blue-400 mt-1">
+                      <p className="text-xs text-blue-600 dark:text-blue-400">
                         Projected annual growth rate of 7-9% driven by industrial expansion and urbanization.
                       </p>
                     </div>
@@ -369,13 +366,13 @@ export const PowerMarketOverview: React.FC<PowerMarketOverviewProps> = ({
         {variant === 'detailed' && (
           <motion.div 
             variants={itemVariants}
-            className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl p-6 lg:p-8 border border-purple-200 dark:border-purple-800"
+            className="m-2 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl border border-purple-200 dark:border-purple-800"
           >
-            <h3 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white mb-4 lg:mb-6 flex items-center">
+            <h3 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white m-4 flex items-center">
               <FiTarget className="w-5 h-5 lg:w-6 lg:h-6 text-purple-500 mr-2" />
               Policy Targets & Roadmap
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
               {data.policyTargets.map((target, index) => (
                 <motion.div 
                   key={target.year}
