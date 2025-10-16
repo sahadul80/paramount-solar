@@ -1,0 +1,264 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Solar Panel Efficiency Breakthrough",
+      "description": "New photovoltaic technology achieves record-breaking 47% efficiency in laboratory tests.",
+      "content": "Researchers at the National Renewable Energy Laboratory have developed a new type of solar cell that combines perovskite and silicon layers to achieve unprecedented efficiency levels. This breakthrough could significantly reduce the cost of solar energy and make it more accessible worldwide. The technology uses advanced light-trapping techniques and novel materials that minimize energy loss while maximizing photon capture.",
+      "author": "Dr. Sarah Chen",
+      "date": "2024-01-15",
+      "category": "Research",
+      "image": "/articles/solar1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Floating Solar Farms Expand",
+      "description": "Massive floating solar installations are being deployed on reservoirs worldwide.",
+      "content": "Floating photovoltaic systems are gaining popularity as they solve land-use conflicts while reducing water evaporation. The latest installation in Singapore covers 45 hectares and generates enough electricity to power 16,000 homes. These systems also help improve water quality by reducing algae growth through shading.",
+      "author": "Marco Rodriguez",
+      "date": "2024-01-12",
+      "category": "Installation",
+      "image": "/articles/solar2.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Bifacial Solar Panel Advantages",
+      "description": "Double-sided panels are proving to be 15% more efficient in real-world conditions.",
+      "content": "Bifacial solar panels, which capture sunlight from both sides, are demonstrating significant performance advantages in various environments. Studies show they perform exceptionally well in snowy conditions and over reflective surfaces. The technology is particularly beneficial for commercial installations where space optimization is crucial.",
+      "author": "Dr. Emily Watson",
+      "date": "2024-01-10",
+      "category": "Technology",
+      "image": "/articles/solar3.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Solar-Powered Desalination",
+      "description": "New solar thermal technology provides fresh water to arid coastal regions.",
+      "content": "A revolutionary solar-powered desalination system is bringing fresh water to communities in North Africa. The system uses concentrated solar power to heat seawater, creating steam that's then condensed into fresh water. This approach is significantly more energy-efficient than traditional reverse osmosis methods.",
+      "author": "Ahmed Al-Mansouri",
+      "date": "2024-01-08",
+      "category": "Innovation",
+      "image": "/articles/solar4.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Solar Window Technology Advances",
+      "description": "Transparent solar cells can turn windows into power generators.",
+      "content": "Researchers have developed nearly transparent solar cells that can be applied to windows while maintaining visibility. This technology could transform skyscrapers into vertical power plants. The organic photovoltaic material captures ultraviolet and infrared light while allowing visible light to pass through.",
+      "author": "Professor James Kim",
+      "date": "2024-01-05",
+      "category": "Research",
+      "image": "/articles/solar5.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Community Solar Projects Flourish",
+      "description": "Shared solar installations are making renewable energy accessible to renters.",
+      "content": "Community solar gardens are expanding across the United States, allowing apartment dwellers and homeowners with shaded roofs to benefit from solar power. Participants subscribe to a portion of a large solar array and receive credits on their electricity bills. This model is particularly successful in Minnesota and New York.",
+      "author": "Lisa Thompson",
+      "date": "2024-01-03",
+      "category": "Community",
+      "image": "/articles/solar6.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Solar-Powered EV Charging Network",
+      "description": "Nationwide network of solar-powered electric vehicle charging stations announced.",
+      "content": "A major energy company has announced plans to build 500 solar-powered EV charging stations across the country. Each station will feature canopy-mounted solar panels and battery storage, enabling 24/7 operation without grid dependency. The initiative aims to address range anxiety while promoting clean transportation.",
+      "author": "Robert Williams",
+      "date": "2024-01-01",
+      "category": "Transportation",
+      "image": "/articles/solar7.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Agrivoltaics: Farming with Solar",
+      "description": "Combining agriculture with solar power generation proves mutually beneficial.",
+      "content": "Agrivoltaic systems, where solar panels are installed above crops, are showing promising results. The partial shading from panels reduces water evaporation and creates microclimates that benefit certain crops. Meanwhile, the vegetation helps keep the panels cooler, increasing their efficiency.",
+      "author": "Maria Gonzalez",
+      "date": "2023-12-28",
+      "category": "Agriculture",
+      "image": "/articles/solar8.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Solar Panel Recycling Initiative",
+      "description": "New recycling process recovers 95% of materials from end-of-life panels.",
+      "content": "As the first generation of solar panels reaches end-of-life, a comprehensive recycling program has been launched. The process efficiently separates glass, silicon, silver, and copper for reuse in new panels. This circular approach addresses sustainability concerns about solar waste.",
+      "author": "David Chen",
+      "date": "2023-12-25",
+      "category": "Sustainability",
+      "image": "/articles/solar9.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Space-Based Solar Power Tests",
+      "description": "Successful demonstration of wireless power transmission from orbit.",
+      "content": "A private space company has successfully tested wireless power transmission from a satellite to a ground station. This milestone brings space-based solar power closer to reality, where satellites in geostationary orbit could collect solar energy 24/7 and beam it to Earth as microwaves.",
+      "author": "Captain Amanda Foster",
+      "date": "2023-12-22",
+      "category": "Innovation",
+      "image": "/articles/solar10.jpg"
+    },
+    {
+      "id": 11,
+      "title": "Solar-Powered Data Centers",
+      "description": "Major tech companies transition to solar-powered cloud infrastructure.",
+      "content": "Leading technology firms are building solar-powered data centers in sunny regions. These facilities use advanced battery storage and AI-powered energy management to ensure uninterrupted operation. The move significantly reduces the carbon footprint of cloud computing and digital services.",
+      "author": "Tech Analyst Team",
+      "date": "2023-12-20",
+      "category": "Technology",
+      "image": "/articles/solar11.jpg"
+    },
+    {
+      "id": 12,
+      "title": "Portable Solar for Disaster Relief",
+      "description": "Rapid-deployment solar systems provide emergency power after natural disasters.",
+      "content": "Lightweight, portable solar systems are being used by relief organizations to provide immediate power in disaster zones. These systems can be air-dropped and set up within hours, powering medical equipment, communications, and water purification systems when grid power is unavailable.",
+      "author": "Relief Operations Director",
+      "date": "2023-12-18",
+      "category": "Humanitarian",
+      "image": "/articles/solar12.jpg"
+    },
+    {
+      "id": 13,
+      "title": "Solar-Powered Green Hydrogen",
+      "description": "Large-scale green hydrogen production using solar power begins operation.",
+      "content": "The world's largest solar-powered hydrogen production facility has commenced operations in Australia. The plant uses solar electricity to split water molecules, producing clean hydrogen fuel for transportation and industry. This represents a major step in decarbonizing hard-to-electrify sectors.",
+      "author": "Energy Analyst Team",
+      "date": "2023-12-15",
+      "category": "Innovation",
+      "image": "/articles/solar13.jpg"
+    },
+    {
+      "id": 14,
+      "title": "Solar Tile Integration",
+      "description": "Seamless solar tiles that look like conventional roofing materials.",
+      "content": "New solar tile technology perfectly mimics traditional roofing materials while generating electricity. These integrated systems are particularly popular in historic districts and upscale neighborhoods where aesthetics are important. The tiles are durable, weather-resistant, and come with 30-year warranties.",
+      "author": "Architectural Review",
+      "date": "2023-12-12",
+      "category": "Design",
+      "image": "/articles/solar14.jpg"
+    },
+    {
+      "id": 15,
+      "title": "Solar-Powered Water Purification",
+      "description": "Off-grid solar systems provide clean drinking water to remote villages.",
+      "content": "Compact solar-powered water purification units are being deployed in rural areas without electricity access. These systems use UV sterilization and reverse osmosis powered entirely by solar panels, providing safe drinking water to communities that previously relied on contaminated sources.",
+      "author": "Water Access Initiative",
+      "date": "2023-12-10",
+      "category": "Humanitarian",
+      "image": "/articles/solar15.jpg"
+    },
+    {
+      "id": 16,
+      "title": "Solar-Powered Smart Highways",
+      "description": "Road-integrated solar panels power LED markings and sensors.",
+      "content": "Experimental smart highways with embedded solar panels are being tested in Europe. These roads generate electricity while providing power for LED lane markings, traffic sensors, and emergency communication systems. The technology could eventually power electric vehicles through wireless charging lanes.",
+      "author": "Transport Innovation Group",
+      "date": "2023-12-08",
+      "category": "Infrastructure",
+      "image": "/articles/solar16.jpg"
+    },
+    {
+      "id": 17,
+      "title": "Solar-Powered Agriculture",
+      "description": "Farmers use solar power for irrigation and processing.",
+      "content": "Agricultural operations are increasingly adopting solar power for water pumping, crop drying, and food processing. Solar-powered cold storage units are particularly valuable in developing countries, reducing post-harvest losses and increasing farmer incomes.",
+      "author": "Agricultural Technology Review",
+      "date": "2023-12-05",
+      "category": "Agriculture",
+      "image": "/articles/solar17.jpg"
+    },
+    {
+      "id": 18,
+      "title": "Solar-Powered Desalination Expansion",
+      "description": "Large-scale solar desalination plant provides water for 100,000 people.",
+      "content": "A massive solar-powered desalination plant in the Middle East is now producing 50,000 cubic meters of fresh water daily. The facility uses both photovoltaic and concentrated solar power technologies, making it one of the most efficient solar desalination plants in operation.",
+      "author": "Water Resources Department",
+      "date": "2023-12-03",
+      "category": "Infrastructure",
+      "image": "/articles/solar18.jpg"
+    },
+    {
+      "id": 19,
+      "title": "Solar-Powered Internet Access",
+      "description": "Solar-powered mesh networks bring internet to remote areas.",
+      "content": "Community-owned solar-powered internet networks are connecting remote villages in Africa and Asia. These decentralized systems use solar-powered routers and repeaters to create local mesh networks, providing affordable internet access without relying on grid electricity.",
+      "author": "Digital Inclusion Project",
+      "date": "2023-11-30",
+      "category": "Technology",
+      "image": "/articles/solar19.jpg"
+    },
+    {
+      "id": 20,
+      "title": "Solar-Powered Healthcare",
+      "description": "Solar energy ensures reliable power for rural clinics and vaccine storage.",
+      "content": "Solar power systems are being installed in health clinics across developing regions, ensuring uninterrupted power for medical equipment, lighting, and vaccine refrigeration. This reliability is crucial for maternal healthcare, emergency services, and vaccination programs.",
+      "author": "Global Health Organization",
+      "date": "2023-11-28",
+      "category": "Healthcare",
+      "image": "/articles/solar20.jpg"
+    },
+    {
+      "id": 21,
+      "title": "Solar-Powered Transportation",
+      "description": "Solar-assisted electric vehicles extend range by 40%.",
+      "content": "New electric vehicles with integrated solar panels on roofs and hoods can significantly extend their driving range. While not replacing charging entirely, the solar augmentation provides enough power for daily commuting in sunny conditions, reducing charging frequency and grid dependence.",
+      "author": "Automotive Innovation",
+      "date": "2023-11-25",
+      "category": "Transportation",
+      "image": "/articles/solar21.jpg"
+    },
+    {
+      "id": 22,
+      "title": "Solar-Powered Education",
+      "description": "Solar-powered digital classrooms transform rural education.",
+      "content": "Solar-powered computer labs and digital learning centers are bringing modern education to off-grid schools. These facilities provide reliable power for computers, projectors, and internet connectivity, enabling access to digital educational resources in remote areas.",
+      "author": "Education Technology Initiative",
+      "date": "2023-11-22",
+      "category": "Education",
+      "image": "/articles/solar22.jpg"
+    },
+    {
+      "id": 23,
+      "title": "Solar-Powered Manufacturing",
+      "description": "Factories achieve energy independence through rooftop solar.",
+      "content": "Manufacturing facilities are covering their extensive roof areas with solar panels, significantly reducing their energy costs and carbon footprint. Some factories have achieved complete energy independence during daylight hours, with excess power being fed back into the grid.",
+      "author": "Industrial Energy Review",
+      "date": "2023-11-20",
+      "category": "Industry",
+      "image": "/articles/solar23.jpg"
+    },
+    {
+      "id": 24,
+      "title": "Solar-Powered Tourism",
+      "description": "Eco-resorts powered entirely by solar energy gain popularity.",
+      "content": "Luxury eco-resorts are demonstrating that sustainability and comfort can coexist. These properties use sophisticated solar systems with battery storage to power all operations, from air conditioning to water heating, while maintaining high standards of guest comfort.",
+      "author": "Sustainable Tourism Association",
+      "date": "2023-11-18",
+      "category": "Tourism",
+      "image": "/articles/solar24.jpg"
+    },
+    {
+      "id": 25,
+      "title": "Solar-Powered Emergency Response",
+      "description": "Mobile solar units provide critical power during emergencies.",
+      "content": "Rapid-deployment solar power units are becoming essential equipment for emergency response teams. These trailer-mounted systems can be quickly transported to disaster areas, providing immediate power for communications, medical equipment, and lighting without fuel requirements.",
+      "author": "Emergency Management Director",
+      "date": "2023-11-15",
+      "category": "Emergency",
+      "image": "/articles/solar25.jpg"
+    },
+    {
+      "id": 26,
+      "title": "Solar-Powered Urban Development",
+      "description": "Smart cities integrate solar into every aspect of urban design.",
+      "content": "Next-generation urban developments are incorporating solar technology into buildings, infrastructure, and public spaces. From solar-powered streetlights and bus stops to building-integrated photovoltaics, these cities are demonstrating the potential of comprehensive solar urbanism.",
+      "author": "Urban Planning Institute",
+      "date": "2023-11-12",
+      "category": "Urban Development",
+      "image": "/articles/solar26.jpg"
+    }
+  ]
+}
