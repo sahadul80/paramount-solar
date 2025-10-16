@@ -1,0 +1,279 @@
+{
+  "executiveSummary": {
+    "title": "100 MW Solar PV Power Plant at Pabna, Bangladesh",
+    "location": "Bhabanipur and Ratanpur Mouza, Pabna Sadar, Pabna, Bangladesh",
+    "capacity": "100 MW AC / 150.12 MWp DC",
+    "technology": "JA Solar Mono PERC P-type bifacial (545 & 550 Wp) modules mounted on fixed tilt Module Mounting Structure (MMS) with 18° tilt angle",
+    "keyHighlights": [
+      "PPA signed with BPDB at fixed tariff rate of USD 0.1195/kWh for 20 years",
+      "Total project cost: USD 174.01 million",
+      "Using JA Solar bifacial modules and Huawei string inverters",
+      "21 km double circuit overhead transmission line to Ishurdi Grid Substation",
+      "Project developed on approximately 377 acres of land"
+    ],
+    "summary": "M/s Dynamic Sun Energy Private Limited is developing 100 MW solar PV plant using JA Solar Mono PERC P-type bifacial modules mounted on fixed tilt structures. The DC power is converted to AC using Huawei string inverters and evacuated at 132 kV using approximately 21 kms double circuit overhead transmission line."
+  },
+  "participants": {
+    "projectCompany": {
+      "name": "Dynamic Sun Energy Private Limited",
+      "role": "Project Developer",
+      "description": "Joint Venture of Paramount Textile Limited (PTL) and Shapoorji Pallonji Infrastructure Capital Company. PTL has previously developed 30MW plant which is operational.",
+      "capabilities": ["30MW operational plant experience", "Experienced project development team", "Strong financial backing"],
+      "status": "verified"
+    },
+    "moduleManufacturer": {
+      "name": "JA Solar",
+      "role": "Module Supplier", 
+      "description": "Tier 1 global manufacturer with cumulative shipment of 152GW as of Q2-2023. Presence in 135 countries with 32,544 employees.",
+      "capabilities": ["Mono PERC bifacial technology", "International certifications (IEC, UL, ISO)", "Global supply chain"],
+      "status": "verified"
+    },
+    "inverterManufacturer": {
+      "name": "Huawei Technologies",
+      "role": "Inverter Supplier",
+      "description": "Global player with significant share in utility scale solar PV plants. Shipped 52 GW of PV inverters in 2021.",
+      "capabilities": ["String inverter technology", "Grid compliance", "Smart PV solutions"],
+      "status": "verified"
+    },
+    "epcContractor": {
+      "name": "Multiple Vendors",
+      "role": "EPC Contractor",
+      "description": "Project Company has issued POs to different vendors for various activities instead of single EPC agreement.",
+      "capabilities": ["Project management by experienced team", "Multiple vendor coordination"],
+      "status": "verified"
+    },
+    "omContractor": {
+      "name": "Dynamic Sun Energy Private Limited",
+      "role": "O&M Contractor", 
+      "description": "Project Company will perform O&M with own team. Paramount group already operating 30MW solar plant.",
+      "capabilities": ["24x7 monitoring", "Preventive maintenance", "Performance monitoring"],
+      "status": "verified"
+    },
+    "powerPurchaser": {
+      "name": "Bangladesh Power Development Board (BPDB)",
+      "role": "Power Purchaser",
+      "description": "Government agency functioning as single buyer in Bangladesh power market. Total installed capacity of 20,383 MW as of Jan-2020.",
+      "capabilities": ["Single buyer in Bangladesh market", "Experience with IPPs", "Government backing"],
+      "status": "verified"
+    },
+    "transmissionUtility": {
+      "name": "Power Grid Company of Bangladesh (PGCB)",
+      "role": "Transmission Utility",
+      "description": "Owns and operates power grid in Bangladesh. Subsidiary of BPDB with extensive transmission network.",
+      "capabilities": ["Grid infrastructure management", "Transmission network operation", "System integration"],
+      "status": "verified"
+    }
+  },
+  "technicalSpecs": {
+    "modules": [
+      {"parameter": "Manufacturer", "value": "JA Solar"},
+      {"parameter": "Model", "value": "JAM72D30-545/MB, JAM72D30-550/MB"},
+      {"parameter": "Type", "value": "Bifacial Mono PERC, half cell, multi busbar"},
+      {"parameter": "DC Capacity", "value": "150.12", "unit": "MWp"},
+      {"parameter": "Module Efficiency", "value": "21.1-21.3", "unit": "%"},
+      {"parameter": "Bifaciality Factor", "value": "70", "unit": "%"}
+    ],
+    "inverters": [
+      {"parameter": "Manufacturer", "value": "Huawei Technologies"},
+      {"parameter": "Model", "value": "SUN2000-215KTL-H0"},
+      {"parameter": "Type", "value": "String Inverter"},
+      {"parameter": "Capacity", "value": "200", "unit": "kW"},
+      {"parameter": "Quantity", "value": "744", "unit": "units"},
+      {"parameter": "Maximum Efficiency", "value": "99", "unit": "%"}
+    ],
+    "transformers": [
+      {"parameter": "Power Transformer", "value": "80/120 MVA, 132/33 kV"},
+      {"parameter": "Inverter Transformer", "value": "6.5 MVA, 33/0.8/0.8 kV"},
+      {"parameter": "Auxiliary Transformer", "value": "1000 kVA, 33/0.415 kV"}
+    ],
+    "mounting": [
+      {"parameter": "Type", "value": "Fixed Tilt"},
+      {"parameter": "Tilt Angle", "value": "18", "unit": "degrees"},
+      {"parameter": "Pitch", "value": "6.5", "unit": "m"},
+      {"parameter": "Land Area", "value": "377", "unit": "acres"}
+    ]
+  },
+  "energyYield": {
+    "firstYear": {
+      "p50": {"generation": 219350, "cufDC": 16.68, "cufAC": 25.04},
+      "p75": {"generation": 210308, "cufDC": 15.99, "cufAC": 24.01},
+      "p90": {"generation": 202170, "cufDC": 15.37, "cufAC": 23.08},
+      "p99": {"generation": 188164, "cufDC": 14.31, "cufAC": 21.48}
+    },
+    "degradation": {
+      "firstYear": 2.0,
+      "subsequentYears": 0.45
+    },
+    "assumptions": [
+      "SolarGIS TMY P50 data (1999-2023)",
+      "Soiling losses: 2%",
+      "System unavailability: 1%",
+      "Performance Ratio: 81.10%"
+    ]
+  },
+  "schedule": {
+    "milestones": [
+      {
+        "id": "1",
+        "name": "Project Start",
+        "plannedDate": "24-Mar-22",
+        "status": "completed",
+        "description": "Project initiation and agreement signing"
+      },
+      {
+        "id": "2", 
+        "name": "Financial Close",
+        "plannedDate": "02-Apr-23",
+        "status": "completed",
+        "description": "Achievement of financial closure"
+      },
+      {
+        "id": "3",
+        "name": "Equipment Delivery",
+        "plannedDate": "Sep-23",
+        "status": "in-progress", 
+        "description": "Delivery of major equipment including modules and inverters"
+      },
+      {
+        "id": "4",
+        "name": "Construction Completion",
+        "plannedDate": "15-Dec-23",
+        "status": "in-progress",
+        "description": "Completion of all construction activities"
+      },
+      {
+        "id": "5",
+        "name": "Commercial Operation Date",
+        "plannedDate": "31-Dec-23",
+        "status": "upcoming",
+        "description": "Plant commissioning and commercial operation"
+      }
+    ],
+    "overallProgress": 65,
+    "criticalPath": ["Module Delivery", "Transmission Line Construction", "Grid Connection"],
+    "nextMilestones": [
+      {
+        "id": "3",
+        "name": "Equipment Delivery",
+        "plannedDate": "Sep-23", 
+        "status": "in-progress",
+        "description": "Delivery of major equipment"
+      },
+      {
+        "id": "4",
+        "name": "Construction Completion",
+        "plannedDate": "15-Dec-23",
+        "status": "in-progress",
+        "description": "Completion of construction"
+      }
+    ]
+  },
+  "risks": [
+    {
+      "id": "1",
+      "category": 1,
+      "description": "Missing delivery schedule in inverter supply agreement",
+      "status": "open",
+      "mitigation": "Request delivery schedule from Project Company"
+    },
+    {
+      "id": "2", 
+      "category": 2,
+      "description": "Incomplete lightning protection coverage in PV area",
+      "status": "in-progress",
+      "mitigation": "Revise lightning protection design and calculations"
+    },
+    {
+      "id": "3",
+      "category": 1, 
+      "description": "Missing performance bond in inverter and MMS supply agreements",
+      "status": "open",
+      "mitigation": "Clarify reasons and measures for breach of agreement"
+    },
+    {
+      "id": "4",
+      "category": 2,
+      "description": "Land acquisition not fully completed (45 acres pending)",
+      "status": "in-progress", 
+      "mitigation": "Monitor land acquisition progress and update status"
+    }
+  ],
+  "permits": [
+    {
+      "id": "1",
+      "description": "NOC from Local Government Upazila",
+      "authority": "Upazila Parishad", 
+      "status": "approved",
+      "submissionDate": "01-Nov-22",
+      "approvalDate": "01-Dec-22",
+      "referenceNumber": "UP/NOC/2022/125"
+    },
+    {
+      "id": "2",
+      "description": "EIA approval of the Project",
+      "authority": "Department of Environment (DOE)",
+      "status": "pending",
+      "submissionDate": "01-Mar-23",
+      "approvalDate": null,
+      "referenceNumber": null
+    },
+    {
+      "id": "3", 
+      "description": "License for generation and supply of electricity",
+      "authority": "BERC/MOPEMR",
+      "status": "pending",
+      "submissionDate": "01-Apr-23", 
+      "approvalDate": null,
+      "referenceNumber": null
+    },
+    {
+      "id": "4",
+      "description": "Approval for construction of transmission line",
+      "authority": "PGCB",
+      "status": "approved", 
+      "submissionDate": "15-Jan-23",
+      "approvalDate": "28-Feb-23",
+      "referenceNumber": "PGCB/TL/2023/89"
+    }
+  ],
+  "financials": {
+    "totalCost": 174010000,
+    "costPerMW": 1.16,
+    "tariff": 0.1195,
+    "assumptions": {
+      "DC Capacity": "150.12 MWp",
+      "Energy P90 Year 1": "202.17 GWh", 
+      "O&M Cost Year 1": "USD 6.28 Mn",
+      "Debt Term": "15 years",
+      "Project Life": "20 years",
+      "Debt Equity Ratio": "70:30"
+    },
+    "sensitivity": {
+      "opex": "5-10% increase",
+      "delay": "3-6 months from planned COD", 
+      "generation": "P99 level from base case P90",
+      "degradation": "0.2% increase per annum"
+    }
+  },
+  "market": {
+    "totalInstalledCapacity": 26000,
+    "renewableCapacity": 1179.4,
+    "solarCapacity": 945.4,
+    "demandProjection": [
+      {"year": 2020, "peakDemand": 17300},
+      {"year": 2025, "peakDemand": 25200}, 
+      {"year": 2030, "peakDemand": 33700}
+    ],
+    "energyMix": [
+      {"source": "Natural Gas", "percentage": 44.13, "capacity": 11470},
+      {"source": "HFO", "percentage": 24.14, "capacity": 6276},
+      {"source": "Coal", "percentage": 12.5, "capacity": 3250},
+      {"source": "Solar", "percentage": 3.64, "capacity": 945.4},
+      {"source": "Imported", "percentage": 5.8, "capacity": 1508},
+      {"source": "Others", "percentage": 9.79, "capacity": 2545.6}
+    ],
+    "policyTargets": [
+      {"year": 2030, "renewableTarget": 20, "solarTarget": 2300}
+    ]
+  }
+}
