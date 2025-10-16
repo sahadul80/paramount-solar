@@ -151,7 +151,7 @@ export const EnergyYield: React.FC<EnergyYieldProps> = ({
                   </label>
                   <select 
                     value={selectedPOE} 
-                    onChange={(e: any) => setSelectedPOE(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSelectedPOE(e.target.value as 'p50' | 'p75' | 'p90' | 'p99')}
                     className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   >
                     {poeOptions.map(option => (

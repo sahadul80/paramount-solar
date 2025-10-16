@@ -2,11 +2,31 @@
 "use client"
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiDollarSign, FiPieChart, FiTrendingUp, FiBarChart2, FiCalendar, FiTarget, FiZap, FiActivity, FiAward, FiPercent } from 'react-icons/fi';
-import { ProjectData } from '../types/types';
 import { useState, useMemo } from 'react';
 
+interface FinancialAssumptions {
+  operationYears?: number;
+  degradationRate?: number;
+  inflationRate?: number;
+  discountRate?: number;
+  debtInterest?: number;
+  taxRate?: number;
+  insuranceCost?: number;
+  omCost?: number;
+  [key: string]: string | number | undefined;
+}
+
+interface FinancialsData {
+  totalCost: number;
+  costPerMW: number;
+  tariff: number;
+  assumptions: FinancialAssumptions;
+  debtEquity?: string;
+  loanTerm?: string;
+}
+
 interface FinancialAnalysisProps {
-  data: ProjectData['financials'];
+  data: FinancialsData;
   className?: string;
   variant?: 'default' | 'compact' | 'detailed';
 }
@@ -18,21 +38,10 @@ export const FinancialAnalysis: React.FC<FinancialAnalysisProps> = ({
 }) => {
   const [selectedView, setSelectedView] = useState<'overview' | 'metrics' | 'assumptions'>('overview');
 
-  if (!data) {
-    return (
-      <section id="financials" className={`w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 ${className}`}>
-        <div className="text-center">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Financial Analysis
-          </h2>
-          <p className="text-gray-500 dark:text-gray-400">Financial data not available</p>
-        </div>
-      </section>
-    );
-  }
-
-  // Calculate additional financial metrics
+  // Calculate additional financial metrics - move useMemo to top level
   const financialMetrics = useMemo(() => {
+    if (!data) return null;
+    
     const totalCost = data.totalCost || 0;
     const costPerMW = data.costPerMW || 0;
     const tariff = data.tariff || 0;
@@ -51,10 +60,23 @@ export const FinancialAnalysis: React.FC<FinancialAnalysisProps> = ({
       paybackPeriod,
       npv,
       irr,
-      debtEquity: '70/30',
-      loanTerm: '15 years'
+      debtEquity: data.debtEquity || '70/30',
+      loanTerm: data.loanTerm || '15 years'
     };
   }, [data]);
+
+  if (!data || !financialMetrics) {
+    return (
+      <section id="financials" className={`w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 ${className}`}>
+        <div className="text-center">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Financial Analysis
+          </h2>
+          <p className="text-gray-500 dark:text-gray-400">Financial data not available</p>
+        </div>
+      </section>
+    );
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -161,7 +183,7 @@ export const FinancialAnalysis: React.FC<FinancialAnalysisProps> = ({
     if (!data.assumptions) return [];
     return Object.entries(data.assumptions).map(([key, value]) => ({
       key: key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()),
-      value,
+      value: value?.toString() || '',
       description: getAssumptionDescription(key)
     }));
   }, [data.assumptions]);
