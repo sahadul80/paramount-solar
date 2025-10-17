@@ -10,6 +10,8 @@ import RiskAssessment from "@/app/components/RiskAssessment";
 import SolarBanner from "@/app/components/SolarBanner";
 import TechnicalSpecs from "@/app/components/TechnicalSpecs";
 
+import projectData from '../../data/pabna-project.json';
+
 // Define proper TypeScript interfaces based on your data structure
 interface ExecutiveSummary {
   title: string;
@@ -146,267 +148,225 @@ interface ProjectData {
   market: MarketData;
 }
 
-// Enhanced data fetching with better error handling and caching
-async function getProjectData(): Promise<ProjectData> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-  const isProduction = process.env.NODE_ENV === 'production';
-
-  try {
-    // Try multiple possible endpoints
-    const endpoints = [
-      `${baseUrl}/data/pabna-project.json`,
-      `${baseUrl}/api/project-data`,
-      '/data/pabna-project.json',
-    ];
-
-    let response: Response | null = null;
-    
-    for (const endpoint of endpoints) {
-      try {
-        response = await fetch(endpoint, {
-          next: { revalidate: isProduction ? 3600 : 60 },
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        
-        if (response?.ok) break;
-      } catch (e) {
-        console.warn(`Failed to fetch from ${endpoint}:`, e);
-        continue;
-      }
+// Fallback data in case the import fails
+const fallbackData: ProjectData = {
+  executiveSummary: {
+    title: "Pabna 100 MW Solar Power Project",
+    location: "Pabna District, Bangladesh",
+    capacity: "100 MW AC",
+    technology: "Monocrystalline PV with Single-Axis Tracking",
+    keyHighlights: [
+      "100 MW AC installed capacity",
+      "Monocrystalline silicon technology with single-axis tracking",
+      "Estimated annual generation: 180,000 MWh",
+      "PPA secured with Bangladesh Power Development Board",
+      "Commercial operation date: Q4 2024"
+    ],
+    summary: "A 100 MW utility-scale solar power project located in Pabna District, Bangladesh, contributing to the country's renewable energy targets and sustainable development goals."
+  },
+  participants: {
+    projectCompany: {
+      name: "Green Energy Bangladesh Ltd.",
+      role: "Project Developer and Owner",
+      description: "Leading renewable energy developer in Bangladesh with over 200 MW of operational projects.",
+      capabilities: ["Project Development", "Financing", "Asset Management"],
+      status: "verified",
+      experience: "10+ years",
+      projectsCompleted: 15,
+      rating: 4.5
+    },
+    epcContractor: {
+      name: "SolarTech Engineering",
+      role: "Engineering, Procurement & Construction",
+      description: "International EPC contractor specializing in utility-scale solar projects.",
+      capabilities: ["Engineering Design", "Procurement", "Construction Management"],
+      status: "verified",
+      experience: "8 years",
+      projectsCompleted: 25,
+      rating: 4.7
     }
-
-    if (!response || !response.ok) {
-      throw new Error('All data fetch attempts failed');
-    }
-
-    const data = await response.json();
-    return data;
-
-  } catch (error) {
-    console.error('Error fetching project data:', error);
-
-    // Return comprehensive mock data for development and fallback
-    return {
-      executiveSummary: {
-        title: "Pabna 100 MW Solar Power Project",
-        location: "Pabna District, Bangladesh",
-        capacity: "100 MW AC",
-        technology: "Monocrystalline PV with Single-Axis Tracking",
-        keyHighlights: [
-          "100 MW AC installed capacity",
-          "Monocrystalline silicon technology with single-axis tracking",
-          "Estimated annual generation: 180,000 MWh",
-          "PPA secured with Bangladesh Power Development Board",
-          "Commercial operation date: Q4 2024"
-        ],
-        summary: "A 100 MW utility-scale solar power project located in Pabna District, Bangladesh, contributing to the country's renewable energy targets and sustainable development goals."
+  },
+  technicalSpecs: {
+    modules: [
+      { parameter: "Module Type", value: "Monocrystalline Silicon", unit: "", description: "High-efficiency monocrystalline panels" },
+      { parameter: "Peak Power", value: "540", unit: "Wp", description: "Maximum power output per module" },
+      { parameter: "Efficiency", value: "21.3", unit: "%", description: "Conversion efficiency under STC" }
+    ],
+    inverters: [
+      { parameter: "Type", value: "Central Inverter", unit: "", description: "Utility-scale central inverter system" },
+      { parameter: "Capacity", value: "2500", unit: "kVA", description: "Rated capacity per unit" },
+      { parameter: "Efficiency", value: "98.5", unit: "%", description: "Maximum conversion efficiency" }
+    ],
+    transformers: [
+      { parameter: "Type", value: "Pad-mounted Transformer", unit: "", description: "Step-up transformer for grid interconnection" },
+      { parameter: "Capacity", value: "33/132", unit: "kV", description: "Primary/secondary voltage ratings or typical configuration" }
+    ],
+    system: [
+      { parameter: "Mounting System", value: "Single-Axis Tracker", unit: "", description: "Automated sun tracking system" },
+      { parameter: "System Voltage", value: "1500", unit: "VDC", description: "Maximum system voltage" }
+    ]
+  },
+  energyYield: {
+    firstYear: {
+      p50: { generation: 180000, cufDC: 23.5, cufAC: 21.8 },
+      p75: { generation: 172000, cufDC: 22.4, cufAC: 20.8 },
+      p90: { generation: 165000, cufDC: 21.5, cufAC: 20.0 },
+      p99: { generation: 158000, cufDC: 20.6, cufAC: 19.1 }
+    },
+    degradation: {
+      firstYear: 2,
+      subsequentYears: 0.5
+    },
+    assumptions: [
+      "Solar resource: 4.8 kWh/m²/day average",
+      "Performance ratio: 86%",
+      "Availability: 98%",
+      "Soiling losses: 3%",
+      "Temperature losses: 4%"
+    ]
+  },
+  schedule: {
+    milestones: [
+      {
+        id: "1",
+        name: "Project Development",
+        plannedDate: "2023-Q1",
+        status: "completed",
+        description: "Initial feasibility studies and project planning",
+        duration: 90,
+        startDate: "2023-01-15",
+        endDate: "2023-04-15"
       },
-      participants: {
-        projectCompany: {
-          name: "Green Energy Bangladesh Ltd.",
-          role: "Project Developer and Owner",
-          description: "Leading renewable energy developer in Bangladesh with over 200 MW of operational projects.",
-          capabilities: ["Project Development", "Financing", "Asset Management"],
-          status: "verified",
-          experience: "10+ years",
-          projectsCompleted: 15,
-          rating: 4.5
-        },
-        epcContractor: {
-          name: "SolarTech Engineering",
-          role: "Engineering, Procurement & Construction",
-          description: "International EPC contractor specializing in utility-scale solar projects.",
-          capabilities: ["Engineering Design", "Procurement", "Construction Management"],
-          status: "verified",
-          experience: "8 years",
-          projectsCompleted: 25,
-          rating: 4.7
-        }
+      {
+        id: "2",
+        name: "Permit Approvals",
+        plannedDate: "2023-Q3",
+        status: "completed",
+        description: "Environmental and regulatory approvals",
+        duration: 120,
+        startDate: "2023-04-16",
+        endDate: "2023-08-15"
       },
-      technicalSpecs: {
-        modules: [
-          { parameter: "Module Type", value: "Monocrystalline Silicon", unit: "", description: "High-efficiency monocrystalline panels" },
-          { parameter: "Peak Power", value: "540", unit: "Wp", description: "Maximum power output per module" },
-          { parameter: "Efficiency", value: "21.3", unit: "%", description: "Conversion efficiency under STC" }
-        ],
-        inverters: [
-          { parameter: "Type", value: "Central Inverter", unit: "", description: "Utility-scale central inverter system" },
-          { parameter: "Capacity", value: "2500", unit: "kVA", description: "Rated capacity per unit" },
-          { parameter: "Efficiency", value: "98.5", unit: "%", description: "Maximum conversion efficiency" }
-        ],
-        transformers: [
-          { parameter: "Type", value: "Pad-mounted Transformer", unit: "", description: "Step-up transformer for grid interconnection" },
-          { parameter: "Capacity", value: "33/132", unit: "kV", description: "Primary/secondary voltage ratings or typical configuration" }
-        ],
-        system: [
-          { parameter: "Mounting System", value: "Single-Axis Tracker", unit: "", description: "Automated sun tracking system" },
-          { parameter: "System Voltage", value: "1500", unit: "VDC", description: "Maximum system voltage" }
-        ]
-      },
-      energyYield: {
-        firstYear: {
-          p50: { generation: 180000, cufDC: 23.5, cufAC: 21.8 },
-          p75: { generation: 172000, cufDC: 22.4, cufAC: 20.8 },
-          p90: { generation: 165000, cufDC: 21.5, cufAC: 20.0 },
-          p99: { generation: 158000, cufDC: 20.6, cufAC: 19.1 }
-        },
-        degradation: {
-          firstYear: 2,
-          subsequentYears: 0.5
-        },
-        assumptions: [
-          "Solar resource: 4.8 kWh/m²/day average",
-          "Performance ratio: 86%",
-          "Availability: 98%",
-          "Soiling losses: 3%",
-          "Temperature losses: 4%"
-        ]
-      },
-      schedule: {
-        milestones: [
-          {
-            id: "1",
-            name: "Project Development",
-            plannedDate: "2023-Q1",
-            status: "completed",
-            description: "Initial feasibility studies and project planning",
-            duration: 90,
-            startDate: "2023-01-15",
-            endDate: "2023-04-15"
-          },
-          {
-            id: "2",
-            name: "Permit Approvals",
-            plannedDate: "2023-Q3",
-            status: "completed",
-            description: "Environmental and regulatory approvals",
-            duration: 120,
-            startDate: "2023-04-16",
-            endDate: "2023-08-15"
-          },
-          {
-            id: "3",
-            name: "Financial Close",
-            plannedDate: "2024-Q1",
-            status: "in-progress",
-            description: "Securing project financing and investment",
-            progress: 75,
-            duration: 180,
-            startDate: "2023-09-01",
-            endDate: "2024-02-29",
-            critical: true
-          }
-        ],
-        overallProgress: 45,
-        criticalPath: ["Financial Close", "Equipment Procurement", "Construction Start"],
-        nextMilestones: [
-          {
-            id: "3",
-            name: "Financial Close",
-            plannedDate: "2024-Q1",
-            status: "in-progress",
-            description: "Securing project financing and investment"
-          },
-          {
-            id: "4",
-            name: "Equipment Procurement",
-            plannedDate: "2024-Q2",
-            status: "upcoming",
-            description: "Procurement of solar panels and balance of system"
-          }
-        ],
-        projectStart: "2023-Q1",
-        projectEnd: "2024-Q4"
-      },
-      risks: [
-        {
-          id: "1",
-          description: "Delay in financial closure due to market conditions",
-          category: 2,
-          status: "in-progress",
-          mitigation: "Engaging multiple financial institutions and exploring alternative financing structures",
-          probability: "medium",
-          rating: 3,
-          progress: 60
-        },
-        {
-          id: "2",
-          description: "Supply chain disruptions for critical components",
-          category: 2,
-          status: "open",
-          mitigation: "Diversifying supplier base and securing advance purchase agreements",
-          probability: "medium",
-          rating: 2
-        }
-      ],
-      permits: [
-        {
-          id: "1",
-          description: "Environmental Impact Assessment",
-          authority: "Department of Environment",
-          status: "approved",
-          submissionDate: "2023-03-15",
-          approvalDate: "2023-06-20",
-          referenceNumber: "EIA-2023-0456",
-          priority: "high",
-          category: "Environmental"
-        },
-        {
-          id: "2",
-          description: "Land Use Permit",
-          authority: "Ministry of Land",
-          status: "pending",
-          submissionDate: "2023-05-10",
-          priority: "high",
-          category: "Land"
-        }
-      ],
-      financials: {
-        totalCost: 85000000,
-        costPerMW: 0.85,
-        tariff: 0.1195,
-        assumptions: {
-          operationYears: 25,
-          degradationRate: 0.5,
-          inflationRate: 2.5,
-          discountRate: 8,
-          debtInterest: 6.5,
-          taxRate: 25,
-          insuranceCost: 0.5,
-          omCost: 1.2
-        },
-        debtEquity: "70/30",
-        loanTerm: "15 years"
-      },
-      market: {
-        totalInstalledCapacity: 25000,
-        renewableCapacity: 4500,
-        solarCapacity: 1200,
-        demandProjection: [
-          { year: 2024, peakDemand: 15500 },
-          { year: 2025, peakDemand: 16500 },
-          { year: 2030, peakDemand: 22000 }
-        ],
-        energyMix: [
-          { source: "Natural Gas", percentage: 62, capacity: 15500 },
-          { source: "Coal", percentage: 15, capacity: 3750 },
-          { source: "Solar", percentage: 5, capacity: 1200 },
-          { source: "Hydro", percentage: 3, capacity: 750 }
-        ],
-        policyTargets: [
-          { year: 2025, renewableTarget: 15, solarTarget: 8 },
-          { year: 2030, renewableTarget: 20, solarTarget: 12 }
-        ]
+      {
+        id: "3",
+        name: "Financial Close",
+        plannedDate: "2024-Q1",
+        status: "in-progress",
+        description: "Securing project financing and investment",
+        progress: 75,
+        duration: 180,
+        startDate: "2023-09-01",
+        endDate: "2024-02-29",
+        critical: true
       }
-    };
+    ],
+    overallProgress: 45,
+    criticalPath: ["Financial Close", "Equipment Procurement", "Construction Start"],
+    nextMilestones: [
+      {
+        id: "3",
+        name: "Financial Close",
+        plannedDate: "2024-Q1",
+        status: "in-progress",
+        description: "Securing project financing and investment"
+      },
+      {
+        id: "4",
+        name: "Equipment Procurement",
+        plannedDate: "2024-Q2",
+        status: "upcoming",
+        description: "Procurement of solar panels and balance of system"
+      }
+    ],
+    projectStart: "2023-Q1",
+    projectEnd: "2024-Q4"
+  },
+  risks: [
+    {
+      id: "1",
+      description: "Delay in financial closure due to market conditions",
+      category: 2,
+      status: "in-progress",
+      mitigation: "Engaging multiple financial institutions and exploring alternative financing structures",
+      probability: "medium",
+      rating: 3,
+      progress: 60
+    },
+    {
+      id: "2",
+      description: "Supply chain disruptions for critical components",
+      category: 2,
+      status: "open",
+      mitigation: "Diversifying supplier base and securing advance purchase agreements",
+      probability: "medium",
+      rating: 2
+    }
+  ],
+  permits: [
+    {
+      id: "1",
+      description: "Environmental Impact Assessment",
+      authority: "Department of Environment",
+      status: "approved",
+      submissionDate: "2023-03-15",
+      approvalDate: "2023-06-20",
+      referenceNumber: "EIA-2023-0456",
+      priority: "high",
+      category: "Environmental"
+    },
+    {
+      id: "2",
+      description: "Land Use Permit",
+      authority: "Ministry of Land",
+      status: "pending",
+      submissionDate: "2023-05-10",
+      priority: "high",
+      category: "Land"
+    }
+  ],
+  financials: {
+    totalCost: 85000000,
+    costPerMW: 0.85,
+    tariff: 0.1195,
+    assumptions: {
+      operationYears: 25,
+      degradationRate: 0.5,
+      inflationRate: 2.5,
+      discountRate: 8,
+      debtInterest: 6.5,
+      taxRate: 25,
+      insuranceCost: 0.5,
+      omCost: 1.2
+    },
+    debtEquity: "70/30",
+    loanTerm: "15 years"
+  },
+  market: {
+    totalInstalledCapacity: 25000,
+    renewableCapacity: 4500,
+    solarCapacity: 1200,
+    demandProjection: [
+      { year: 2024, peakDemand: 15500 },
+      { year: 2025, peakDemand: 16500 },
+      { year: 2030, peakDemand: 22000 }
+    ],
+    energyMix: [
+      { source: "Natural Gas", percentage: 62, capacity: 15500 },
+      { source: "Coal", percentage: 15, capacity: 3750 },
+      { source: "Solar", percentage: 5, capacity: 1200 },
+      { source: "Hydro", percentage: 3, capacity: 750 }
+    ],
+    policyTargets: [
+      { year: 2025, renewableTarget: 15, solarTarget: 8 },
+      { year: 2030, renewableTarget: 20, solarTarget: 12 }
+    ]
   }
-}
+};
 
-export default async function PabnaProjectPage() {
-  const projectData = await getProjectData();
+// Use imported data or fallback data
+const data: ProjectData = (projectData as unknown as ProjectData) ?? fallbackData;
 
+export default function PabnaProjectPage() {
   return (
     <ProjectLayout>
       {/* Hero Section */}
@@ -417,47 +377,47 @@ export default async function PabnaProjectPage() {
       {/* Main Content Sections */}
       <div className="w-auto">
         <ProjectOverview 
-          data={projectData.executiveSummary} 
+          data={data.executiveSummary} 
           variant="detailed"
         />
         
         <PowerMarketOverview 
-          data={projectData.market} 
+          data={data.market} 
           variant="detailed"
         />
         
         <ProjectParticipants 
-          data={projectData.participants} 
+          data={data.participants} 
           variant="detailed"
         />
         
         <TechnicalSpecs 
-          data={projectData.technicalSpecs} 
+          data={data.technicalSpecs} 
           variant="detailed"
         />
         
         <EnergyYield 
-          data={projectData.energyYield} 
+          data={data.energyYield} 
           variant="detailed"
         />
         
         <ProjectSchedule 
-          data={projectData.schedule} 
+          data={data.schedule} 
           variant="detailed"
         />
         
         <RiskAssessment 
-          data={projectData.risks} 
+          data={data.risks} 
           variant="detailed"
         />
         
         <PermitsAndClearances 
-          data={projectData.permits} 
+          data={data.permits} 
           variant="detailed"
         />
         
         <FinancialAnalysis 
-          data={projectData.financials} 
+          data={data.financials} 
           variant="detailed"
         />
       </div>
@@ -503,15 +463,13 @@ export default async function PabnaProjectPage() {
 
 // Generate metadata for SEO
 export async function generateMetadata() {
-  const projectData = await getProjectData();
-  
   return {
-    title: `${projectData.executiveSummary.title} | Project Overview`,
-    description: projectData.executiveSummary.summary,
+    title: `${data.executiveSummary.title} | Project Overview`,
+    description: data.executiveSummary.summary,
     keywords: ['solar', 'renewable energy', 'Bangladesh', 'Pabna', '100MW', 'solar project'],
     openGraph: {
-      title: projectData.executiveSummary.title,
-      description: projectData.executiveSummary.summary,
+      title: data.executiveSummary.title,
+      description: data.executiveSummary.summary,
       type: 'website',
       locale: 'en_US',
     },
